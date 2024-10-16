@@ -10,25 +10,25 @@
     <div class="nav-container">
         <nav class="navbar">
             <ul class="nav-list">
-                <li class="nav-item active">
+                <li id="home-button" class="nav-item active">
                     <a href="#home">
-                        <img src="./src/home_icon.svg" alt="Home" class="nav-icon">
-                        <span class="nav-text">Home</span>
+                      <img src="./src/home_icon.svg" alt="Home" class="nav-icon">
+                      <span class="nav-text">Home</span>
                     </a>
                 </li>
-                <li class="nav-item">
-                    <a href="#works">
+                <li id="work-button" class="nav-item">
+                    <a href="#godot">
                         <img src="./src/works_icon.svg" alt="Works" class="nav-icon">
                         <span class="nav-text">Works</span>
                     </a>
                 </li>
-                <li class="nav-item">
+                <li id="blog-button" class="nav-item">
                     <a href="#blog">
                         <img src="./src/blog_icon.svg" alt="Blog" class="nav-icon">
                         <span class="nav-text">Blog</span>
                     </a>
                 </li>
-                <li class="nav-item">
+                <li id="contact-button" class="nav-item">
                     <a href="#contact">
                         <img src="./src/contact_icon.svg" alt="Contact" class="nav-icon">
                         <span class="nav-text">Contact</span>
@@ -37,7 +37,7 @@
             </ul>
         </nav>
     </div>
-<section class="home-section">
+<section id="home" class="home-section">
     <div>
         <h1 class="title-name">BOBBY ROBIN</h1>
         <div class="sub-title">
@@ -58,13 +58,14 @@
     <img src="./src/splash_img.png" class="splash_2" alt="splash image">
     <!-- <img src="./src/stroke_1.svg" class="stroke_1" alt="stroke"> -->
     <img src="./src/gradient_dark_blue.svg" class="gradient-dark-blue" alt="dark blue gradient">
-    <img src="./src/arrow_icon.svg" id="arrow" alt="down arrow">
+    <a href="#godot"><img src="./src/arrow_icon.svg" id="arrow" alt="down arrow"></a>
+    
 </section>
 
-<section class="godot-section">
+<section id="godot" class="godot-section">
     <div class="godot-contents">
         <div class="pow pow-godot">
-            <h2 id="#pow">Pow</h2>
+            <h2 id="pow">Pow</h2>
             <h2>ered By</h2>
         </div>
         <img class="godot-icon" src="./src/godot_icon.svg" alt="godot logo">
@@ -188,7 +189,7 @@
         <div></div>
     </div> -->
 </section>
-<section class="blog-section">
+<section id="blog" class="blog-section">
     <div class="blog-container">
 
         <a href="https://medium.com/@bobzy/my-first-game-using-godot-devlog1-genesis-6e50a7b98289">
@@ -223,7 +224,7 @@
     </div>
   <!-- <img src="./src/stroke_2.svg" alt="stroke"> -->
 </section>
-<section class="about-section">
+<section id="contact" class="about-section">
     <div class="about-container">
         <h2>
             About Me
@@ -254,6 +255,6 @@
 </body>
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollSmoother.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/Observer.min.js"></script>
 <script src="/scripts/script.js"></script>
 </html>

@@ -5,6 +5,10 @@ html{
   overflow:   scroll;
   margin: 0;
   padding: 0;
+  scroll-behavior: smooth;
+  height: 100%;
+  margin: 0;
+  overflow-y: scroll;
 }
 
 ::-webkit-scrollbar {
@@ -21,6 +25,7 @@ body{
   font-optical-sizing: auto;
   font-style: normal;
   user-select: none;
+  scroll-snap-type: y mandatory;
 
   scrollbar-width: none; /* Firefox */
   -ms-overflow-style: none;  /* IE 10+ */
@@ -31,21 +36,28 @@ body{
   }
 }
 
+section {
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+  height: 100vh; /* Ensure each section takes up the full viewport height */
+}
 
 
 .nav-container {
-  position: relative;
+  position: fixed;
+  left: 50%;
+  transform: translate(-50%, 0);
   top: 2vh;
   display: flex;
   justify-content: center;
   align-items: center;
   height: 10vh;
   font-weight: 700;
-  z-index: 1;
+  z-index: 5;
 }
 
 .navbar {
-  width: 60%;
+  width: 100%;
   min-width: 460px;
   background-color: $navBarColor;
   border-radius: 1.625rem;
@@ -64,6 +76,7 @@ body{
 
 .nav-item {
   text-align: center;
+  padding: 0px 20px;
 }
 
 .nav-item a {
@@ -176,6 +189,7 @@ body{
   left: 50%;
   width: 4vw;
   min-width: 40px;
+  z-index: 2;
 }
 
 
@@ -211,13 +225,14 @@ body{
   width: 45vw;
   position: relative;
   left: 10vw;
-  top: -45vw;
+  top: -20vw;
 }
 
 .pow-godot{
   position: relative;
   left: 10vw;
   top: 0vh;
+  opacity: 0.0;
 }
 
 .pow{
@@ -251,6 +266,8 @@ body{
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  position: relative;
+  top: 35vh;
 }
 
 .godot-icon {
@@ -276,8 +293,9 @@ body{
 
 .godot-details{
   position: relative;
-  left: 12vw;
-  top: -20vh;
+  // left: 100vw;
+  top: -10vh;
+  // opacity: 0.0;
 
   p{
     margin: 2px;
@@ -310,7 +328,7 @@ body{
   justify-content: center;
   align-items: center;
   position: relative;
-  top: 8vh;
+  top: 35vh;
   left: -7vw;
   z-index: 1;
 }
@@ -319,6 +337,8 @@ body{
   position: relative;
   left: 10vw;
   top: 0vh;
+  
+
 }
 
 .pow-unity h2:nth-child(1){
@@ -343,8 +363,9 @@ body{
   position: absolute;
   width: 50vw;
   left: 22vw;
-  top: -15vh;
+  top: 10vh;
   z-index: -1;
+  animation: pulse 2s infinite; /* Optional CSS animation */
 }
 
 .unity-icon {
@@ -359,12 +380,13 @@ body{
   width: 45vw;
   position: relative;
   left: 45vw;
+  top: 20vh;
 }
 
 .unity-details {
   position: relative;
-  left: 28vw;
-  top: -10vh;
+  left: 10vw;
+  top: 20vh;
   width: 21vw;
   p{
     margin: 2px;
@@ -679,6 +701,9 @@ body{
     height: 10vh;
     font-weight: 700;
     z-index: 4;
+    position: fixed;
+    left: 50%;
+    transform: translate(-50%, 0);
   }
 
   .navbar{
@@ -687,6 +712,17 @@ body{
     border-radius: 3rem;
     padding-top: 0px;
     padding-bottom: 0px;
+
+    ul{
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      flex-direction: row;
+    }
+
+    li{
+      padding: 0px;
+    }
 
     span{
       display: none;
@@ -700,9 +736,8 @@ body{
 
 
   .nav-icon {
-    width: 2rem;
-    height: 2rem;
-    margin-right: 0.5rem;
+    width: 1.5rem;
+    // margin-right: 0.5rem;
   }
 
   .illustration {
@@ -776,8 +811,8 @@ body{
   align-items: center;
   position: absolute;
   left: auto;
-  left: 10vw;
-  top: 54vh;
+  top: 33vh;
+  opacity: 1.0;
 }
 
 .godot-video-container {
@@ -793,7 +828,7 @@ body{
   box-shadow: -20px -20px 20px 20px rgba(0, 0, 0, 0.2705882353);
   width: 90vw;
   position: relative;
-  top: 37vw;
+  top: 5vh;
   left: auto
 }
 
@@ -869,15 +904,16 @@ body{
 
 .godot-details{
   position: relative;
-  left: -4vw;
-  top: 18vh;
+  left: auto;
+  top: 14vh;
+  opacity: 1;
 }
 
 .godot-icon {
   width: 49vw;
   z-index: 2;
   position: absolute;
-  top: 58vh;
+  top: 38vh;
   left: 42vw;
 }
 .bob-1-section {
@@ -886,21 +922,22 @@ body{
 }
 
 #bob-1 {
-  width: 60vw;
+  width: 50vw;
   border-radius: 10vw;
   position: absolute;
-  top: 26vh;
+  top: 30vh;
   left: auto;
 }
 .title-bob-1 {
   left: auto;
-  top: 2vh;
+  top: 5vh;
+  font-size: 10vw;
 }
 .bob-1-details {
   left: auto;
-  top: 10vh;
-  font-size: 4.5vw;
-  width: 75vw;
+  top: 15vh;
+  font-size: 3vw;
+  width: 65vw;
   padding: 5.5vw;
 }
 
@@ -923,22 +960,22 @@ body{
 }
 
 .unity-details {
-  width: 65vw;
-  text-align: center;
-  top: -32vh;
-  left: 6vw;
-  font-size: 4.5vw;
+  width: 60vw;
+  text-align: start;
+  top: -50vh;
+  left: auto;
+  font-size: 4vw;
 }
 
 #unity-video {
   width: 90vw;
   left: auto;
-  top: auto;
+  top: -15vh;
 }
 
 .pow-unity {
-  left: -5vw;
-  top: 20vh;
+  left: auto;
+  top: -5vh;
 }
 .pow-unity h2:nth-child(2){
   font-family: "londrina Solid", sans-serif;
@@ -946,7 +983,7 @@ body{
 }
 
 .unity-icon{
-  top: 20vh;
+  top: -4vh;
   left: 20vw;
   width: 50vw;
 }
@@ -966,12 +1003,12 @@ body{
 
 .bob-2-details-2 {
   width: 75vw;
-  top: 25vh;
+  top: 20vh;
 }
 .bob-2-details {
   width: 70vw;
-  top: 20vh;
-  left: 5vw;
+  top: 22vh;
+  left: auto;
 }
 
 #bob-2{
@@ -979,4 +1016,38 @@ body{
   top: auto;
   left: auto;
 }
+
+//hide all gradients
+.dark-blue-gradient{
+  display: none;
+}
+
+.blue-gradient {
+  display: none;
+}
+
+.light-blue-gradient{
+  display: none;
+}
+
+.yellow-gradient{
+  display: none;
+}
+
+.red-gradient {
+  display: none;
+}
+
+
+}
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.4);
+  }
+  100% {
+    transform: scale(1);
+  }
 }
