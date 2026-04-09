@@ -3,6 +3,11 @@ document.addEventListener('DOMContentLoaded', () => {
     initThemeToggle();
     initNavigation();
     initProjectCards();
+
+    // Initialize carousels if the works module is active on load
+    if (document.getElementById('works')?.classList.contains('active')) {
+        toggleCarousels(true);
+    }
 });
 
 async function runBootSequence() {
@@ -163,6 +168,13 @@ function initNavigation() {
                         targetModule.classList.add('active');
                     }
                 }, '-=200'); // Overlap animations for smoothness
+
+            // Handle carousel performance based on active module
+            if (targetId === 'works') {
+                toggleCarousels(true);
+            } else {
+                toggleCarousels(false);
+            }
         });
     });
 }
@@ -172,6 +184,12 @@ function initProjectCards() {
 
     cards.forEach(card => {
         // 3D Tilt Effect
+        let rafId = null;
+        let targetRotateX = 0;
+        let targetRotateY = 0;
+        let currentRotateX = 0;
+        let currentRotateY = 0;
+
         card.addEventListener('mousemove', (e) => {
             const rect = card.getBoundingClientRect();
             const x = e.clientX - rect.left;
@@ -180,17 +198,38 @@ function initProjectCards() {
             const centerX = rect.width / 2;
             const centerY = rect.height / 2;
 
-            const rotateX = ((y - centerY) / centerY) * -10;
-            const rotateY = ((x - centerX) / centerX) * 10;
+            targetRotateX = ((y - centerY) / centerY) * -10;
+            targetRotateY = ((x - centerX) / centerX) * 10;
 
-            card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02, 1.02, 1.02)`;
+            if (!rafId) {
+                rafId = requestAnimationFrame(updateTilt);
+            }
         });
 
+        function updateTilt() {
+            // Smooth interpolation (lerp) for buttery smooth motion
+            currentRotateX += (targetRotateX - currentRotateX) * 0.1;
+            currentRotateY += (targetRotateY - currentRotateY) * 0.1;
+
+            card.style.transform = `perspective(1000px) rotateX(${currentRotateX}deg) rotateY(${currentRotateY}deg) scale3d(1.02, 1.02, 1.02)`;
+
+            if (Math.abs(targetRotateX - currentRotateX) < 0.01 && Math.abs(targetRotateY - currentRotateY) < 0.01) {
+                rafId = null;
+                return;
+            }
+            rafId = requestAnimationFrame(updateTilt);
+        }
+
         card.addEventListener('mouseleave', () => {
-            card.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)';
+            targetRotateX = 0;
+            targetRotateY = 0;
+            if (!rafId) {
+                rafId = requestAnimationFrame(updateTilt);
+            }
         });
 
         // Staggered Slide-up for details
+
         card.addEventListener('mouseenter', () => {
             anime({
                 targets: card.querySelector('.card-details'),
