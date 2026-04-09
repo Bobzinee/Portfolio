@@ -133,25 +133,18 @@ h1, h2, h3 {
     transform: scale(1.2);
 }
 
-#main-dock img {
+#main-dock .dock-icon {
     width: 2rem;
     height: 2rem;
-    // Using a mask or filter to apply the dynamic color variable
-    filter: drop-shadow(0 0 0 var(--icon-color));
-    // Note: For SVG icons to truly use currentColor/variable,
-    // they should be inline or used as masks.
-    // As a fallback for img tags, we maintain a logic that respects theme.
-    color: var(--icon-color);
-}
-
-// Handling icon colors for images (since they don't support currentColor)
-// We use a CSS filter to shift the color based on the theme variable
-// This is a more robust approach than simple invert(1)
-[data-theme="dark"] #main-dock img {
-    filter: brightness(0) invert(1);
-}
-[data-theme="light"] #main-dock img {
-    filter: brightness(0);
+    background-color: var(--icon-color);
+    mask-image: var(--icon-url);
+    mask-size: contain;
+    mask-repeat: no-repeat;
+    mask-position: center;
+    -webkit-mask-image: var(--icon-url);
+    -webkit-mask-size: contain;
+    -webkit-mask-repeat: no-repeat;
+    -webkit-mask-position: center;
 }
 
 // Modules
@@ -181,7 +174,7 @@ h1, h2, h3 {
         gap: var(--space-xs);
     }
 
-    #main-dock img {
+    #main-dock .dock-icon {
         width: 1.5rem;
         height: 1.5rem;
     }
