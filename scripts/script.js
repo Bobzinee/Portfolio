@@ -241,18 +241,35 @@ function initProjectCards() {
                 easing: 'easeOutBack'
             });
         });
-    });
 
-    // Carousel implementation
-    const carousels = document.querySelectorAll('.project-card[data-carousel="true"]');
-    carousels.forEach(carousel => {
-        const imgs = carousel.querySelectorAll('.carousel-img');
-        let currentIndex = 0;
-
-        setInterval(() => {
-            imgs[currentIndex].classList.remove('active');
-            currentIndex = (currentIndex + 1) % imgs.length;
-            imgs[currentIndex].classList.add('active');
-        }, 3000);
+        // Initialize carousel if applicable
+        if (card.dataset.carousel === 'true') {
+            startCarousel(card);
+        }
     });
+}
+
+function startCarousel(card) {
+    const imgs = card.querySelectorAll('.carousel-img');
+    if (imgs.length === 0) return null;
+
+    let currentIndex = 0;
+    const intervalId = setInterval(() => {
+        imgs[currentIndex].classList.remove('active');
+        currentIndex = (currentIndex + 1) % imgs.length;
+        imgs[currentIndex].classList.add('active');
+    }, 3000);
+
+    activeCarousels.push(intervalId);
+    return intervalId;
+}
+
+function toggleCarousels(active) {
+    if (!active) {
+        activeCarousels.forEach(id => clearInterval(id));
+        activeCarousels.length = 0;
+    } else {
+        const carousels = document.querySelectorAll('.project-card[data-carousel="true"]');
+        carousels.forEach(card => startCarousel(card));
+    }
 }
