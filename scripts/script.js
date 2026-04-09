@@ -2,6 +2,7 @@ document.addEventListener('DOMContentLoaded', () => {
     runBootSequence();
     initThemeToggle();
     initNavigation();
+    initProjectCards();
 });
 
 async function runBootSequence() {
@@ -163,5 +164,54 @@ function initNavigation() {
                     }
                 }, '-=200'); // Overlap animations for smoothness
         });
+    });
+}
+
+function initProjectCards() {
+    const cards = document.querySelectorAll('.project-card');
+
+    cards.forEach(card => {
+        // 3D Tilt Effect
+        card.addEventListener('mousemove', (e) => {
+            const rect = card.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+
+            const centerX = rect.width / 2;
+            const centerY = rect.height / 2;
+
+            const rotateX = ((y - centerY) / centerY) * -10;
+            const rotateY = ((x - centerX) / centerX) * 10;
+
+            card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02, 1.02, 1.02)`;
+        });
+
+        card.addEventListener('mouseleave', () => {
+            card.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)';
+        });
+
+        // Staggered Slide-up for details
+        card.addEventListener('mouseenter', () => {
+            anime({
+                targets: card.querySelector('.card-details'),
+                translateY: [20, 0],
+                opacity: [0, 1],
+                duration: 400,
+                easing: 'easeOutBack'
+            });
+        });
+    });
+
+    // Carousel implementation
+    const carousels = document.querySelectorAll('.project-card[data-carousel="true"]');
+    carousels.forEach(carousel => {
+        const imgs = carousel.querySelectorAll('.carousel-img');
+        let currentIndex = 0;
+
+        setInterval(() => {
+            imgs[currentIndex].classList.remove('active');
+            currentIndex = (currentIndex + 1) % imgs.length;
+            imgs[currentIndex].classList.add('active');
+        }, 3000);
     });
 }
