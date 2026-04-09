@@ -179,14 +179,17 @@ h1, h2, h3 {
     left: 0;
     width: 100%;
     height: 100%;
-    display: none;
+    display: block; // Changed from none to block for animations
     padding: var(--space-xl);
     background: var(--module-bg);
+    opacity: 0; // Hidden by default
+    pointer-events: none; // Prevent interaction when hidden
     transition: opacity var(--transition-speed);
 }
 
 .module.active {
-    display: block;
+    opacity: 1;
+    pointer-events: auto;
 }
 
 // =============================================================================

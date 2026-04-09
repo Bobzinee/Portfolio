@@ -107,24 +107,56 @@ function initThemeToggle() {
 function initNavigation() {
     const navButtons = document.querySelectorAll('#main-dock button[data-target]');
     const modules = document.querySelectorAll('.module');
+    let currentAnimation = null;
 
     navButtons.forEach(btn => {
         btn.addEventListener('click', () => {
-            const target = btn.getAttribute('data-target');
+            const targetId = btn.getAttribute('data-target');
+            const targetModule = document.getElementById(targetId);
+            const activeModule = document.querySelector('.module.active');
 
-            modules.forEach(mod => {
-                mod.classList.remove('active');
-                if (mod.id === target) {
-                    mod.classList.add('active');
-                    anime({
-                        targets: mod,
-                        opacity: [0, 1],
-                        translateY: [20, 0],
-                        duration: 400,
-                        easing: 'easeOutQuad'
-                    });
-                }
+            if (!targetModule || targetModule === activeModule) return;
+
+            // Handle rapid clicking by cancelling current animation
+            if (currentAnimation) {
+                currentAnimation.pause();
+            }
+
+            // Update dock button active state
+            navButtons.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+
+            // Set initial state for target module
+            anime.set(targetModule, {
+                opacity: 0,
+                translateX: 50
             });
+
+            // Slide-out current module, slide-in target module
+            currentAnimation = anime.timeline({
+                easing: 'easeOutQuad',
+                duration: 400
+            });
+
+            currentAnimation
+                .add({
+                    targets: activeModule,
+                    opacity: 0,
+                    translateX: -50,
+                    duration: 300,
+                    complete: () => {
+                        activeModule.classList.remove('active');
+                    }
+                })
+                .add({
+                    targets: targetModule,
+                    opacity: [0, 1],
+                    translateX: [50, 0],
+                    duration: 300,
+                    begin: () => {
+                        targetModule.classList.add('active');
+                    }
+                }, '-=200'); // Overlap animations for smoothness
         });
     });
 }
