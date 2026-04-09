@@ -3,258 +3,49 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio</title>
-    <link type="text/css" rel="stylesheet" href="styles/style.css">
+    <title>Gamified Command Center Portfolio</title>
+    <link rel="stylesheet" href="styles/style.css">
 </head>
 <body>
-    <div class="nav-container">
-        <nav class="navbar">
-            <ul class="nav-list">
-                <li id="home-button" class="nav-item active">
-                    <a href="#home">
-                      <img src="./src/home_icon.svg" alt="Home" class="nav-icon">
-                      <span class="nav-text">Home</span>
-                    </a>
-                </li>
-                <li id="work-button" class="nav-item">
-                    <a href="#godot">
-                        <img src="./src/works_icon.svg" alt="Works" class="nav-icon">
-                        <span class="nav-text">Works</span>
-                    </a>
-                </li>
-                <li id="blog-button" class="nav-item">
-                    <a href="#blog">
-                        <img src="./src/blog_icon.svg" alt="Blog" class="nav-icon">
-                        <span class="nav-text">Blog</span>
-                    </a>
-                </li>
-                <li id="contact-button" class="nav-item">
-                    <a href="#contact">
-                        <img src="./src/contact_icon.svg" alt="Contact" class="nav-icon">
-                        <span class="nav-text">Contact</span>
-                    </a>
-                </li>
-            </ul>
+    <div id="boot-overlay">
+        <div id="boot-text"></div>
+    </div>
+
+    <div id="app-container">
+        <nav id="main-dock">
+            <button id="nav-home" data-target="home" title="Home">
+                <img src="src/Icons/home_icon.svg" alt="Home">
+            </button>
+            <button id="nav-works" data-target="works" title="Works">
+                <img src="src/Icons/works_icon.svg" alt="Works">
+            </button>
+            <button id="nav-skills" data-target="skills" title="Skills">
+                <img src="src/Icons/blog_icon.svg" alt="Skills">
+            </button>
+            <button id="nav-contact" data-target="contact" title="Contact">
+                <img src="src/Icons/contact_icon.svg" alt="Contact">
+            </button>
+            <button id="theme-toggle" title="Toggle Theme">
+                <span class="theme-icon"></span>
+            </button>
         </nav>
-    </div>
-<section id="home" class="home-section">
-    <div>
-        <h1 class="title-name">BOBBY ROBIN</h1>
-        <div class="sub-title">
-            <h3>WEB</h3>
-            <h3 class="dev">DEV</h3>
-            <h2>|</h2>
-            <h3>GAME</h3>
-            <h3 class="dev">DEV</h3>
-        </div>
+
+        <main id="viewport">
+            <section id="home" class="module active">
+                <h1>Welcome to the Command Center</h1>
+            </section>
+            <section id="works" class="module">
+                <h1>Works</h1>
+            </section>
+            <section id="skills" class="module">
+                <h1>Skills</h1>
+            </section>
+            <section id="contact" class="module">
+                <h1>Contact</h1>
+            </section>
+        </main>
     </div>
 
-    <div>
-       <h2 class="line-1 anim-typewriter">I build cool stuff!</h2>
-    </div>
-
-    <img src="./src/illustration.svg" class="illustration" alt="illustration">
-    <img src="./src/splash_img.png" class="splash_1" alt="splash image">
-    <img src="./src/splash_img.png" class="splash_2" alt="splash image">
-    <!-- <img src="./src/stroke_1.svg" class="stroke_1" alt="stroke"> -->
-    <img src="./src/gradient_dark_blue.svg" class="gradient-dark-blue" alt="dark blue gradient">
-    <a href="#godot"><img src="./src/arrow_icon.svg" id="arrow" alt="down arrow"></a>
-    
-</section>
-
-<section id="godot" class="godot-section">
-    <div class="godot-contents">
-        <div class="pow pow-godot">
-            <h2 id="pow">Pow</h2>
-            <h2>ered By</h2>
-        </div>
-        <img class="godot-icon" src="./src/godot_icon.svg" alt="godot logo">
-        <div class="glass-effect godot-details">
-            <p>Written in <b>GDScript</b></p>
-            <p>Script Shader</p>
-            <p>Frame-By-Frame animation</p>
-            <p>Implemented Fininte State Machine</p>
-        </div>
-    </div>
- 
-    <div class="godot-video-container">
-        <img id="placeholderImage" src="./src/other_world.gif" alt="Video placeholder" class="other_world_placeholder">
-    </div>
-   
-    <img class="blue-gradient" src="./src/gradient_dark_blue.svg" alt="dark blue gradient">
-    <!-- <div>
-        <img src="./src/stroke_2.svg" alt="stroke">
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-    </div> -->
-</section>
-
-<section class="unity-section">
-    <div class="unity-contents">
-        <div class="pow pow-unity">
-            <h2>Power</h2>
-            <h2>ed By</h2>
-        </div>
-        <img src="./src/unity_icon.svg" class="unity-icon" alt="unity icon">
-    </div>
-    <img src="./src/gradient_red.svg" class="red-gradient" alt="red gradient">
-    <video id="unity-video" src="./src/astrospectra.mp4" autoplay muted loop alt="game video"></video>
-    <div class="glass-effect unity-details">
-        <p>Written in <b>C#</b></p>
-        <p>Particle Effects</p>
-        <p>Implemented basic enemy AI</p>
-    </div>
-    <!-- <div>
-        <img src="./src/stroke_3.svg" alt="stroke">
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-    </div> -->
-</section>
-
-<section class="bob-2-section">
-    <div class="glass-effect bob-2-details">
-        <p>Built for the brower</p>
-        <p>Logic programmed entirely with <b>Typescript</b></p>
-        <p>No game engine used</p>
-        <p>Blender to design the models</p>
-    </div>
-    <video id="bob-2" src="./src/bobs_a_wuss_2.mp4" autoplay muted loop alt="game video"></video>
-    <img src="./src/gradient_light_blue.svg" alt="light blue gradient" class="light-blue-gradient">
-    <div class="glass-effect bob-2-details-2">
-        <p>Written in <b>Typescript/Javascript</b></p>
-        <p><a href="https://threejs.org">Three.js </a>for rendering graphics</p>
-        <p><a href="https://schteppe.github.io/cannon.js">Cannon.js </a> for handling Physics</p>
-        <p>Implemented Enemy AI</p>
-    </div>
-    <h2 class="title">3D Game</h2>
-</section>
-<section class="expense-tracker-section">
-    <div class="carousel-container">
-        <h1 class="carousel-title">Full Stack Web App</h1>
-        <div class="carousel">
-            <button class="carousel-nav prev">&lt;</button>
-            <div class="carousel-item">
-                <img src="./src/expense_tracker_1.png" alt="Cart">
-            </div>
-            <div class="carousel-item">
-                <img src="./src/expense_tracker_2.png" alt="Settled Expenses">
-            </div>
-            <div class="carousel-item active">
-                <img src="./src/expense_tracker_3.png" alt="Expense Summary">
-            </div>
-            <div class="carousel-item">
-                <img src="./src/expense_tracker_4.png" alt="Expense Form">
-            </div>
-            <div class="carousel-item">
-                <img src="./src/expense_tracker_5.png" alt="Additional Feature">
-            </div>
-            <button class="carousel-nav next">&gt;</button>
-        </div>
-    </div>
-
-    <!-- <div>
-        <img src="./src/stroke_2.svg" alt="stroke">
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-    </div> -->
-</section>
-
-<section class="bob-1-section">
-        <h2 class="title-bob-1">2D Game</h2>
-        <video id="bob-1" src="./src/bobs_a_wuss_1.mp4" autoplay muted loop></video>
-        <img src="./src/gradient_yellow.svg" class="yellow-gradient" alt="yellow gradient">
-        <div class="glass-effect bob-1-details">
-           <p> A 2D endless scroller game</p>
-           <p>Written in <b>HTML, CSS, Javascript</b></p>
-           <p>Object Oriented Programming</p>
-           <p>Collision detection</p>
-           <p>Parallax background</p>
-        </div>
-  
-    <!-- <div>
-        <img src="./src/stroke_4.svg" alt="stroke">
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-    </div> -->
-</section>
-<section id="blog" class="blog-section">
-    <div class="blog-container">
-
-        <a href="https://medium.com/@bobzy/my-first-game-using-godot-devlog1-genesis-6e50a7b98289">
-            <div class="blog-card">
-                <div>
-                    <h4>My first game using Godot - #Devlog1: Genesis</h4>
-                    <p>I stared down the well-trodden path of indie game development, the one that many started...</p>
-                </div>
-                <img src="./src/thumbnail_devlog1.png" alt="blog thumbnail">
-            </div>
-        </a>
-        
-        <a href="https://medium.com/@bobzy/my-first-game-using-godot-devlog2-descent-into-madness-9a736d7cde97">
-          <div class="blog-card">
-            <div>
-                <h4>My first game using Godot - #Devlog2: Descent into Madness</h4>
-                <p>No one said it better than Thanos: "Reality is ..</p>
-            </div>
-          <img src="./src/thumbnail_devlog2.png" alt="blog thumbnail">
-        </div>
-      </a>
-        <a href="https://medium.com/@bobzy/how-i-discovered-my-style-of-art-and-became-a-better-artist-bf365a968c8f">
-            <div class="blog-card">
-                <div>
-                    <h4>How I discovered my style of art and became
-                        a better artist</h4>
-                    <p>"Oh my God!", my mom exclaimed, and not in a good way...</p>
-                </div>
-                <!-- <img src="./src/thumbnail_devlog3.png" alt="blog thumbnail"> -->
-            </div>
-        </a>
-    </div>
-  <!-- <img src="./src/stroke_2.svg" alt="stroke"> -->
-</section>
-<section id="contact" class="about-section">
-    <div class="about-container">
-        <h2>
-            About Me
-        </h2>
-        <p>
-            I am a self-taught programmer who is passionate about technology. I spend most of my time building 
-            games and websites. I love tinkering, writing sci-fi short stories and making illustrations in my free time. 
-            I am always excited to work with new technology to build something incredible.
-        </p>
-    </div>
-    <div class="contact-container">
-        <h4>You can find me here: </h4>
-        <a href="https://www.instagram.com/bobby_robyn_/profilecard/?igsh=eWw5cjJlMXgxY21k">
-            <img src="./src/instagram_icon.png" alt="instagram icon">
-        </a>
-        <a href="https://www.youtube.com/@bobbys8463">
-            <img src="./src/youtube_icon.png" alt="youtube icon">
-        </a>
-        <a href="https://www.linkedin.com/in/bobby-robin">
-            <img src="./src/linkedin_icon.png" alt="linkedin icon">
-        </a>
-        <a href="https://github.com/Bobzinee">
-            <img src="./src/github_icon.png" alt="github icon">
-        </a>
-    </div>
-    <!-- <img src="./src/stroke_5.svg" alt="stroke"> -->
-</section>
+    <script src="src/main.js" defer></script>
 </body>
-<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/Observer.min.js"></script>
-<script src="/scripts/script.js"></script>
 </html>
