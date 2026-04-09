@@ -3,285 +3,272 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gamified Command Center Portfolio</title>
+    <title>Bobby Robin | Portfolio</title>
+    <!-- Quicksand Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles/style.css">
 </head>
-<body>
-    <div id="boot-overlay">
-        <div id="boot-text"></div>
-    </div>
+<body class="dark-mode">
+    <header>
+        <div class="container header-content">
+            <div class="logo">
+                <span class="orange-text">BOBBY</span> ROBIN
+            </div>
+            <nav class="desktop-nav">
+                <a href="#hero">Home</a>
+                <a href="#projects">Projects</a>
+                <a href="#skills">Skills</a>
+                <a href="#contact">Contact</a>
+            </nav>
+            <div class="header-actions">
+                <button id="theme-toggle" aria-label="Toggle Theme">
+                    <svg class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+                    <svg class="moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+                </button>
+                <div class="social-icons">
+                    <a href="https://github.com/bobzinee" target="_blank" aria-label="GitHub">
+                        <img src="src/Icons/github_icon.png" alt="" class="icon-invert">
+                    </a>
+                    <a href="https://www.linkedin.com/in/bobby-robin" target="_blank" aria-label="LinkedIn">
+                        <img src="src/Icons/linkedin_icon.png" alt="" class="icon-invert">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
 
-    <div id="app-container">
-        <nav id="main-dock">
-            <button id="nav-home" data-target="home" title="Home" aria-label="Home">
-                <div class="dock-icon" style="--icon-url: url('src/Icons/home_icon.svg');"></div>
-            </button>
-            <button id="nav-works" data-target="works" title="Works" aria-label="Works">
-                <div class="dock-icon" style="--icon-url: url('src/Icons/works_icon.svg');"></div>
-            </button>
-            <button id="nav-skills" data-target="skills" title="Skills" aria-label="Skills">
-                <div class="dock-icon" style="--icon-url: url('src/Icons/github_icon.png');"></div>
-            </button>
-            <button id="nav-contact" data-target="contact" title="Contact" aria-label="Contact">
-                <div class="dock-icon" style="--icon-url: url('src/Icons/contact_icon.svg');"></div>
-            </button>
-            <button id="theme-toggle" title="Toggle Theme" aria-label="Toggle Theme">
-                <span class="theme-icon"></span>
-            </button>
-        </nav>
+    <main>
+        <section id="hero">
+            <div class="container hero-content">
+                <h1 class="reveal">BUILDING <span class="orange-text">DIGITAL</span> WORLDS</h1>
+                <p class="reveal">Full-stack Developer & Game Designer crafting high-performance web applications, immersive games, and creative programming tools.</p>
+                <div class="cta-buttons reveal">
+                    <a href="#projects" class="btn btn-primary">View Projects</a>
+                    <a href="#contact" class="btn btn-secondary">Get In Touch</a>
+                </div>
+            </div>
+        </section>
 
-        <main id="viewport">
-            <section id="home" class="module active">
-                <h1>Welcome to the Command Center</h1>
-            </section>
-            <section id="works" class="module">
-                <h2 class="gamified-accent">PROJECT_DATABASE</h2>
+        <section id="projects">
+            <div class="container">
+                <h2 class="section-title reveal">PROJECTS</h2>
+                <div class="filter-buttons reveal">
+                    <button class="filter-btn active" data-filter="all">All</button>
+                    <button class="filter-btn" data-filter="web">Web Apps</button>
+                    <button class="filter-btn" data-filter="game">Games</button>
+                    <button class="filter-btn" data-filter="tool">Tools</button>
+                </div>
                 <div class="project-grid">
                     <!-- Web Apps -->
-                    <div class="project-card" data-category="WEB_APP">
-                        <div class="card-visual">
-                            <img src="src/AnimateEdge/pic.png" alt="Animate Edge">
+                    <article class="project-card reveal" data-category="web">
+                        <div class="project-media">
+                            <video src="src/AnimateEdge/vid.mp4" autoplay muted loop playsinline></video>
                         </div>
-                        <div class="card-body">
-                            <span class="category-tag">WEB_APP</span>
+                        <div class="project-content">
+                            <span class="project-tag">Web App</span>
                             <h3>Animate Edge</h3>
-                            <div class="card-details">
-                                <p>High-performance animation engine built with React and Rust/WASM.</p>
-                                <div class="tech-stack">
-                                    <span>React</span>
-                                    <span>Rust</span>
-                                    <span>WASM</span>
+                            <p>High-performance web animation editor powered by React and a Rust WASM engine for geometry-heavy tasks.</p>
+                            <div class="project-footer">
+                                <div class="project-links">
+                                    <a href="https://animateedge.com" target="_blank">
+                                        Launch Site <img src="src/Icons/arrow_icon.svg" class="icon-arrow" alt="">
+                                    </a>
                                 </div>
-                                <a href="https://animateedge.com" target="_blank" class="launch-btn">LAUNCH_SITE</a>
                             </div>
                         </div>
-                    </div>
+                    </article>
 
-                    <div class="project-card" data-category="WEB_APP" data-carousel="true">
-                        <div class="card-visual carousel">
-                            <img src="src/ExpenseTracker/expense_tracker_1.png" alt="Expense Tracker" class="carousel-img active">
-                            <img src="src/ExpenseTracker/expense_tracker_2.png" alt="Expense Tracker" class="carousel-img">
-                            <img src="src/ExpenseTracker/expense_tracker_3.png" alt="Expense Tracker" class="carousel-img">
-                            <img src="src/ExpenseTracker/expense_tracker_4.png" alt="Expense Tracker" class="carousel-img">
-                            <img src="src/ExpenseTracker/expense_tracker_5.png" alt="Expense Tracker" class="carousel-img">
+                    <article class="project-card reveal" data-category="web">
+                        <div class="project-media image-sequence">
+                            <img src="src/ExpenseTracker/expense_tracker_1.png" alt="Expense Tracker">
+                            <img src="src/ExpenseTracker/expense_tracker_2.png" alt="Expense Tracker" style="display:none">
+                            <img src="src/ExpenseTracker/expense_tracker_3.png" alt="Expense Tracker" style="display:none">
+                            <img src="src/ExpenseTracker/expense_tracker_4.png" alt="Expense Tracker" style="display:none">
+                            <img src="src/ExpenseTracker/expense_tracker_5.png" alt="Expense Tracker" style="display:none">
                         </div>
-                        <div class="card-body">
-                            <span class="category-tag">WEB_APP</span>
+                        <div class="project-content">
+                            <span class="project-tag">Web App</span>
                             <h3>Expense Tracker</h3>
-                            <div class="card-details">
-                                <p>Full-stack financial management tool with real-time tracking.</p>
-                                <div class="tech-stack">
-                                    <span>React</span>
-                                    <span>Node.js</span>
-                                    <span>MongoDB</span>
-                                </div>
-                                <a href="#" target="_blank" class="launch-btn">LAUNCH_SITE</a>
-                            </div>
+                            <p>Full-stack financial tool for managing shared expenses and shopping lists with real-time updates.</p>
                         </div>
-                    </div>
+                    </article>
 
-                    <div class="project-card" data-category="WEB_APP">
-                        <div class="card-visual">
-                            <img src="src/PianoEdge/pic.png" alt="Piano Edge">
+                    <article class="project-card reveal" data-category="web">
+                        <div class="project-media video-sequence">
+                            <video src="src/PianoEdge/vid_1.mp4" muted playsinline></video>
+                            <video src="src/PianoEdge/vid_2.mp4" muted playsinline style="display:none"></video>
                         </div>
-                        <div class="card-body">
-                            <span class="category-tag">WEB_APP</span>
+                        <div class="project-content">
+                            <span class="project-tag">Web App</span>
                             <h3>Piano Edge</h3>
-                            <div class="card-details">
-                                <p>Interactive learning platform for mastering the piano.</p>
-                                <div class="tech-stack">
-                                    <span>React</span>
-                                    <span>Web Audio API</span>
+                            <p>Modern music platform focusing on pattern-based learning to make piano accessible and intuitive.</p>
+                            <div class="project-footer">
+                                <div class="project-links">
+                                    <a href="https://pianoedge.net" target="_blank">
+                                        Launch Site <img src="src/Icons/arrow_icon.svg" class="icon-arrow" alt="">
+                                    </a>
                                 </div>
-                                <a href="#" target="_blank" class="launch-btn">LAUNCH_SITE</a>
                             </div>
                         </div>
-                    </div>
-
-                    <div class="project-card" data-category="WEB_APP">
-                        <div class="card-visual">
-                            <video src="src/RobotControlConsole/vid_1.mp4" autoplay muted loop playsinline></video>
-                        </div>
-                        <div class="card-body">
-                            <span class="category-tag">WEB_APP</span>
-                            <h3>Robot Control Console</h3>
-                            <div class="card-details">
-                                <p>Hardware control interface developed in Godot and exported to WASM.</p>
-                                <div class="tech-stack">
-                                    <span>Godot</span>
-                                    <span>WASM</span>
-                                </div>
-                                <a href="#" target="_blank" class="launch-btn">LAUNCH_SITE</a>
-                            </div>
-                        </div>
-                    </div>
+                    </article>
 
                     <!-- Games -->
-                    <div class="project-card" data-category="GAME">
-                        <div class="card-visual">
+                    <article class="project-card reveal" data-category="game">
+                        <div class="project-media">
                             <video src="src/AstroSpectra/astrospectra.mp4" autoplay muted loop playsinline></video>
                         </div>
-                        <div class="card-body">
-                            <span class="category-tag">GAME</span>
+                        <div class="project-content">
+                            <span class="project-tag">Game</span>
                             <h3>AstroSpectra</h3>
-                            <div class="card-details">
-                                <p>Fast-paced space exploration game built with Unity WebGL.</p>
-                                <div class="tech-stack">
-                                    <span>Unity</span>
-                                    <span>C#</span>
-                                    <span>WebGL</span>
+                            <p>Space-themed Unity WebGL game featuring cosmic aesthetics and responsive browser-based gameplay.</p>
+                            <div class="project-footer">
+                                <div class="project-links">
+                                    <a href="https://bobzinee.github.io/AstroSpectra/" target="_blank">
+                                        Play Now <img src="src/Icons/arrow_icon.svg" class="icon-arrow" alt="">
+                                    </a>
                                 </div>
-                                <a href="https://bobzinee.github.io/AstroSpectra/" target="_blank" class="launch-btn">LAUNCH_GAME</a>
                             </div>
                         </div>
-                    </div>
+                    </article>
 
-                    <div class="project-card" data-category="GAME">
-                        <div class="card-visual">
+                    <article class="project-card reveal" data-category="game">
+                        <div class="project-media">
                             <video src="src/BobsAWuss1/bobs_a_wuss_1.mp4" autoplay muted loop playsinline></video>
                         </div>
-                        <div class="card-body">
-                            <span class="category-tag">GAME</span>
-                            <h3>Bob's a Wuss (Part 1)</h3>
-                            <div class="card-details">
-                                <p>Experimental physics-based comedy game using JS Canvas.</p>
-                                <div class="tech-stack">
-                                    <span>JavaScript</span>
-                                    <span>Canvas API</span>
+                        <div class="project-content">
+                            <span class="project-tag">Game</span>
+                            <h3>Bob's a Wuss (Pt 1)</h3>
+                            <p>Pure JS endless runner with parallax backgrounds and a custom physics/combat system on HTML5 Canvas.</p>
+                            <div class="project-footer">
+                                <div class="project-links">
+                                    <a href="https://bobzinee.github.io/bobs-a-wuss-part-1" target="_blank">
+                                        Play Now <img src="src/Icons/arrow_icon.svg" class="icon-arrow" alt="">
+                                    </a>
                                 </div>
-                                <a href="https://bobzinee.github.io/bobs-a-wuss-part-1" target="_blank" class="launch-btn">LAUNCH_GAME</a>
                             </div>
                         </div>
-                    </div>
+                    </article>
 
-                    <div class="project-card" data-category="GAME">
-                        <div class="card-visual">
+                    <article class="project-card reveal" data-category="game">
+                        <div class="project-media">
                             <video src="src/BobsAWuss2/bobs_a_wuss_2.mp4" autoplay muted loop playsinline></video>
                         </div>
-                        <div class="card-body">
-                            <span class="category-tag">GAME</span>
+                        <div class="project-content">
+                            <span class="project-tag">Game</span>
                             <h3>Zombie Shooter</h3>
-                            <div class="card-details">
-                                <p>3D survival shooter implementing Three.js and Cannon.js physics.</p>
-                                <div class="tech-stack">
-                                    <span>Three.js</span>
-                                    <span>Cannon.js</span>
-                                    <span>WebGL</span>
+                            <p>3D survival shooter built with Three.js and Cannon.js, featuring advanced physics and enemy AI.</p>
+                            <div class="project-footer">
+                                <div class="project-links">
+                                    <a href="https://bobzinee.github.io/three/" target="_blank">
+                                        Play Now <img src="src/Icons/arrow_icon.svg" class="icon-arrow" alt="">
+                                    </a>
                                 </div>
-                                <a href="https://bobzinee.github.io/three/" target="_blank" class="launch-btn">LAUNCH_GAME</a>
                             </div>
                         </div>
-                    </div>
+                    </article>
 
-                    <div class="project-card" data-category="GAME">
-                        <div class="card-visual">
-                            <img src="src/Otherworld/other_world.gif" alt="The Otherworld">
+                    <article class="project-card reveal" data-category="game">
+                        <div class="project-media">
+                            <img src="src/Otherworld/other_world.gif" alt="Otherworld">
                         </div>
-                        <div class="card-body">
-                            <span class="category-tag">GAME</span>
-                            <h3>The Otherworld</h3>
-                            <div class="card-details">
-                                <p>Atmospheric exploration game developed in Godot.</p>
-                                <div class="tech-stack">
-                                    <span>Godot</span>
-                                    <span>GDScript</span>
-                                </div>
-                                <a href="#" target="_blank" class="launch-btn">LAUNCH_GAME</a>
-                            </div>
+                        <div class="project-content">
+                            <span class="project-tag">Game</span>
+                            <h3>Otherworld</h3>
+                            <p>2D platformer in Godot with custom GLSL shaders and a decoupled finite state machine architecture.</p>
                         </div>
-                    </div>
+                    </article>
 
                     <!-- Tools -->
-                    <div class="project-card" data-category="TOOL">
-                        <div class="card-visual">
+                    <article class="project-card reveal" data-category="tool">
+                        <div class="project-media video-sequence">
+                            <video src="src/RobotControlConsole/vid_1.mp4" muted playsinline></video>
+                            <video src="src/RobotControlConsole/vid_2.mp4" muted playsinline style="display:none"></video>
+                        </div>
+                        <div class="project-content">
+                            <span class="project-tag">Tool</span>
+                            <h3>Robot Controller</h3>
+                            <p>Industrial-grade controller console using WASM and WebRTC for secure, real-time robot command.</p>
+                        </div>
+                    </article>
+
+                    <article class="project-card reveal" data-category="tool">
+                        <div class="project-media">
                             <img src="src/UtimateEdge/pic.png" alt="Ultimate Edge">
                         </div>
-                        <div class="card-body">
-                            <span class="category-tag">TOOL</span>
+                        <div class="project-content">
+                            <span class="project-tag">Tool</span>
                             <h3>Ultimate Edge</h3>
-                            <div class="card-details">
-                                <p>Desktop AI orchestrator integrating Electron and Ollama.</p>
-                                <div class="tech-stack">
-                                    <span>Electron</span>
-                                    <span>Ollama</span>
-                                    <span>TypeScript</span>
-                                </div>
-                                <a href="#" target="_blank" class="launch-btn">LAUNCH_TOOL</a>
-                            </div>
+                            <p>AI-powered assistant for feature scoping, integrating Electron, Ollama, and SQLite-vec for local RAG.</p>
                         </div>
-                    </div>
+                    </article>
                 </div>
-            </section>
-            <section id="skills" class="module">
-                <h2 class="gamified-accent">SKILL_MATRIX</h2>
-                <div class="skills-container">
-                    <div class="skill-module" data-module="Frontend">
+            </div>
+        </section>
+
+        <section id="skills">
+            <div class="container">
+                <h2 class="section-title reveal">SKILLS</h2>
+                <div class="skills-grid">
+                    <div class="skill-category reveal">
                         <h3>Frontend</h3>
-                        <div class="skill-list">
-                            <span class="skill-item">React 19</span>
-                            <span class="skill-item">TypeScript</span>
-                            <span class="skill-item">SCSS</span>
-                            <span class="skill-item">GSAP</span>
-                            <span class="skill-item">anime.js</span>
-                        </div>
+                        <ul>
+                            <li>React</li>
+                            <li>TypeScript</li>
+                            <li>SCSS</li>
+                            <li>anime.js</li>
+                            <li>Three.js</li>
+                        </ul>
                     </div>
-                    <div class="skill-module" data-module="Game Dev">
+                    <div class="skill-category reveal">
                         <h3>Game Dev</h3>
-                        <div class="skill-list">
-                            <span class="skill-item">Unity</span>
-                            <span class="skill-item">Godot</span>
-                            <span class="skill-item">Three.js</span>
-                            <span class="skill-item">Cannon.js</span>
-                            <span class="skill-item">GLSL</span>
-                        </div>
+                        <ul>
+                            <li>Unity</li>
+                            <li>Godot</li>
+                            <li>Cannon.js</li>
+                            <li>GLSL</li>
+                        </ul>
                     </div>
-                    <div class="skill-module" data-module="System/Tooling">
-                        <h3>System/Tooling</h3>
-                        <div class="skill-list">
-                            <span class="skill-item">Rust</span>
-                            <span class="skill-item">WASM</span>
-                            <span class="skill-item">Electron</span>
-                            <span class="skill-item">SQLite-vec</span>
-                            <span class="skill-item">Ollama</span>
-                        </div>
-                    </div>
-                    <div class="skill-module" data-module="Backend">
-                        <h3>Backend</h3>
-                        <div class="skill-list">
-                            <span class="skill-item">Node.js</span>
-                            <span class="skill-item">Express</span>
-                            <span class="skill-item">MongoDB</span>
-                            <span class="skill-item">Supabase</span>
-                        </div>
+                    <div class="skill-category reveal">
+                        <h3>Tools & Systems</h3>
+                        <ul>
+                            <li>Rust</li>
+                            <li>WASM</li>
+                            <li>Electron</li>
+                            <li>SQLite</li>
+                            <li>Ollama</li>
+                        </ul>
                     </div>
                 </div>
-            </section>
-            <section id="contact" class="module">
-                <h2 class="gamified-accent">ESTABLISH_CONNECTION</h2>
-                <div class="contact-container">
-                    <div class="contact-card">
-                        <p class="contact-text">Interested in collaborating on a high-performance project?</p>
-                        <div class="contact-links">
-                            <a href="https://github.com/Bobzinee" target="_blank" class="contact-link">
-                                <div class="link-icon" style="--icon-url: url('src/Icons/github_icon.png');"></div>
-                                <span>GITHUB</span>
-                            </a>
-                            <a href="https://linkedin.com/in/yourprofile" target="_blank" class="contact-link">
-                                <div class="link-icon" style="--icon-url: url('src/Icons/linkedin_icon.png');"></div>
-                                <span>LINKEDIN</span>
-                            </a>
-                            <a href="mailto:hello@example.com" class="contact-link">
-                                <div class="link-icon" style="--icon-url: url('src/Icons/contact_icon.svg');"></div>
-                                <span>EMAIL</span>
-                            </a>
+            </div>
+        </section>
+
+        <section id="contact">
+            <div class="container">
+                <h2 class="section-title reveal">GET IN TOUCH</h2>
+                <p class="reveal">Interested in collaborating or just want to say hi? Reach out through any of the channels below.</p>
+                <div class="contact-links">
+                    <div class="contact-card reveal">
+                        <div class="icon-wrapper">
+                            <img src="src/Icons/github_icon.png" alt="">
                         </div>
+                        <h4>GitHub</h4>
+                        <a href="https://github.com/bobzinee" target="_blank">bobzinee</a>
+                    </div>
+                    <div class="contact-card reveal">
+                        <div class="icon-wrapper">
+                            <img src="src/Icons/linkedin_icon.png" alt="">
+                        </div>
+                        <h4>LinkedIn</h4>
+                        <a href="https://www.linkedin.com/in/bobby-robin" target="_blank">Bobby Robin</a>
                     </div>
                 </div>
-            </section>
-        </main>
-    </div>
+            </div>
+        </section>
+    </main>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
-    <script src="scripts/script.js" defer></script>
+    <script src="scripts/script.js"></script>
 </body>
 </html>
