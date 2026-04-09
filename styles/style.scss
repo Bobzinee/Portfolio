@@ -187,10 +187,10 @@ header {
       width: 18px;
       height: 18px;
       object-fit: contain;
-    }
 
-    &.icon-invert {
-      filter: invert(0.5);
+      &.icon-invert {
+        filter: invert(0.5);
+      }
     }
   }
 }
