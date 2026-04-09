@@ -18,7 +18,7 @@ async function runBootSequence() {
 
     for (const message of bootMessages) {
         bootText.textContent = message;
-        await new Promise(resolve => setTimeout(resolve, 600));
+        await new Promise(resolve => setTimeout(resolve, 400));
     }
 
     // Fade out boot overlay
@@ -64,27 +64,38 @@ function initThemeToggle() {
         overlay.style.left = `${centerX}px`;
         overlay.style.top = `${centerY}px`;
 
+        // Calculate the target theme's background color before animation
+        const targetTheme = currentTheme === 'dark' ? 'light' : 'dark';
+        const targetBgColor = getComputedStyle(document.documentElement).getPropertyValue('--bg-color').trim();
+
+        // Temporarily apply the target theme to the root to get the target color if needed,
+        // but the CSS variables are defined in [data-theme="light"] and :root.
+        // A better way is to create a dummy element or use a specific selector.
+        const dummy = document.createElement('div');
+        dummy.setAttribute('data-theme', targetTheme);
+        dummy.style.cssText = 'position: absolute; visibility: hidden;';
+        document.body.appendChild(dummy);
+        const computedTargetColor = getComputedStyle(dummy).getPropertyValue('--bg-color').trim();
+        document.body.removeChild(dummy);
+
+        overlay.style.backgroundColor = computedTargetColor;
+
         // Get screen diagonal for full coverage
         const maxRadius = Math.sqrt(window.innerWidth**2 + window.innerHeight**2);
+        const scaleValue = (maxRadius * 2) / 10; // Since initial size is 10px
 
         anime({
             targets: overlay,
-            width: maxRadius * 2,
-            height: maxRadius * 2,
+            scale: [0, scaleValue],
             duration: 600,
             easing: 'easeInOutQuad',
-            begin: () => {
-                // Set the background color of the overlay to the target theme color
-                overlay.style.background = getComputedStyle(document.documentElement).getPropertyValue('--bg-color').trim();
-            },
             complete: () => {
                 html.setAttribute('data-theme', newTheme);
 
                 // Reset overlay after theme switch
                 anime({
                     targets: overlay,
-                    width: 0,
-                    height: 0,
+                    scale: 0,
                     duration: 400,
                     easing: 'easeInOutQuad'
                 });
