@@ -123,13 +123,18 @@ function initNavigation() {
             }
 
             // Update dock button active state
-            navButtons.forEach(b => b.classList.remove('active'));
+            navButtons.forEach(b => {
+                b.classList.remove('active');
+                b.removeAttribute('aria-current');
+            });
             btn.classList.add('active');
+            btn.setAttribute('aria-current', 'page');
 
-            // Set initial state for target module
+            // Reset target module state to baseline before triggering animation
             anime.set(targetModule, {
                 opacity: 0,
-                translateX: 50
+                translateX: 50,
+                pointerEvents: 'none'
             });
 
             // Slide-out current module, slide-in target module
