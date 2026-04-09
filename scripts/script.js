@@ -1,3 +1,5 @@
+const activeCarousels = [];
+
 document.addEventListener('DOMContentLoaded', () => {
     runBootSequence();
     initThemeToggle();
